@@ -1,0 +1,23 @@
+<div class="container">
+  <p>Interpolation binding</p>
+  <p>{{title}}</p>
+  <p>{{displayValue}}</p>
+
+
+  <p>Property binding</p>
+  <p [title]="title">Hover me</p>
+  <img [src]="" style="height: 100px;" [alt]="imageAlt">
+  <button [disabled]="buttonState">Submit</button>
+
+
+  <p>Event binding</p>
+  <h1 (click)="onHeadingClick()">Click me</h1>
+  <input type="text" (keyup)="onInputKeyUp($event)">
+
+  <p>{{inputValue}}</p>
+
+  <p>Two Way binding</p>
+  <input type="text" [(ngModel)]="title">
+</div>
+
+

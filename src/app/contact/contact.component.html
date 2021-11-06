@@ -1,1 +1,48 @@
 <app-header></app-header>
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Contact</li>
+      </ol>
+    </nav>
+    <h1 class="display-5 fw-bold">Contact us</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <h2>Contact Information</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, facilis?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, facilis?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, facilis?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, facilis?</p>
+        <ul>
+          <li><p><strong>Email</strong></p> olayinkafamutimi@gmail.com</li>
+          <li><p><strong>Phone</strong></p> 213-520-7376</li>
+          <li><p><strong>Address</strong></p> 33B Oliver Street</li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Subject</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="form-floating">
+            <label for="floatingTextarea2">Message</label>
+            <textarea class="form-control" placeholder="Leave a message here" id="floatingTextarea2" style="height: 100px"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

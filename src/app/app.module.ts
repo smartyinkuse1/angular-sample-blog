@@ -9,6 +9,9 @@ import { ContactComponent } from './contact/contact.component';
 import { CategoryComponent } from './category/category.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { TestComponent } from './test/test.component';
+import { FormsModule } from '@angular/forms';
+import { ExercisesComponent } from './exercises/exercises.component';
 
 @NgModule({
   declarations: [ // All component available in the module
@@ -18,11 +21,14 @@ import { FooterComponent } from './footer/footer.component';
     ContactComponent,
     CategoryComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TestComponent,
+    ExercisesComponent
   ],
   imports: [ // Shows us all the modules being used in our module
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
