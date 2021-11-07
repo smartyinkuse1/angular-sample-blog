@@ -4,9 +4,152 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Name of Category</li>
+        <li class="breadcrumb-item active" aria-current="page">{{categoryName}}</li>
       </ol>
     </nav>
-    <h1 class="display-5 fw-bold">Name of Category</h1>
+    <h1 class="display-5 fw-bold">{{categoryName?.toLocaleUpperCase()}}</h1>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row main">
+        <div class="col-md-6">
+          <div class="card" >
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card" >
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <p class="h1 mb-5">Most read</p>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="assets/buildings.jpg" class="img-fluid rounded-start img-high" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">My city is the best</h5>
+              <p class="card-text">I've lived here for a long time and i really enjoy it here, being an industralized community is the fascinating part....</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="assets/buildings.jpg" class="img-fluid rounded-start img-high" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">My city is the best</h5>
+              <p class="card-text">I've lived here for a long time and i really enjoy it here, being an industralized community is the fascinating part....</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="assets/buildings.jpg" class="img-fluid rounded-start img-high" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">My city is the best</h5>
+              <p class="card-text">I've lived here for a long time and i really enjoy it here, being an industralized community is the fascinating part....</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="h1 mb-5">Categories</p>
+      <ul class="category-widget">
+        <li><a href="">Music <span>100</span></a></li>
+        <li><a href="">Fashion<span>30</span></a></li>
+        <li><a href="">Sport<span>300</span></a></li>
+        <li><a href="">News<span>150</span></a></li>
+      </ul>
+
+      <p class="h1 my-5">Archive</p>
+      <ul class="category-widget">
+        <li><a href="">2020</a></li>
+        <li><a href="">2019</a></li>
+        <li><a href="">2018</a></li>
+        <li><a href="">2017</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,28 @@
+.img-high {
+  min-height: 100%;
+}
+
+ul {
+  &.category-widget {
+    padding-left: 0 !important;
+    li {
+      display: block;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #a0aaba;
+      a {
+        display: flex;
+        text-decoration: none;
+        justify-content: space-between;
+        color: #a0aaba;
+      }
+    }
+  }
+}
+
+div {
+  &.row {
+      .col-md-6 {
+        margin: 10px 0;
+      }
+    }
+}

@@ -6,7 +6,7 @@
 
   <p>Property binding</p>
   <p [title]="title">Hover me</p>
-  <img [src]="" style="height: 100px;" [alt]="imageAlt">
+  <img [src]="imageUrl" style="height: 100px;" [alt]="imageAlt">
   <button [disabled]="buttonState">Submit</button>
 
 
@@ -18,6 +18,8 @@
 
   <p>Two Way binding</p>
   <input type="text" [(ngModel)]="title">
+
+  <app-exercises [displayValueFromParent]="displayValue"></app-exercises>
 </div>
 
 

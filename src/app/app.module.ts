@@ -12,6 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 import { TestComponent } from './test/test.component';
 import { FormsModule } from '@angular/forms';
 import { ExercisesComponent } from './exercises/exercises.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
 
 @NgModule({
   declarations: [ // All component available in the module
@@ -23,7 +25,9 @@ import { ExercisesComponent } from './exercises/exercises.component';
     HeaderComponent,
     FooterComponent,
     TestComponent,
-    ExercisesComponent
+    ExercisesComponent,
+    ParentComponent,
+    ChildComponent,
   ],
   imports: [ // Shows us all the modules being used in our module
     BrowserModule,

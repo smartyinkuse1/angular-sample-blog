@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-exercises',
@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exercises.component.scss']
 })
 export class ExercisesComponent implements OnInit {
-  numberValue: number = 2;
+  @Input() displayValueFromParent: number = 0
+  numberValue: number = 2
+  someString: string = '';
+  buttonState: boolean = false
   constructor() { }
 
   ngOnInit(): void {
@@ -17,4 +20,12 @@ export class ExercisesComponent implements OnInit {
     //Math.pow(this.numberValue,2)
   }
 
+  onMultiply() {
+    console.log(this.numberValue)
+    this.numberValue = this.numberValue * 5
+    if(this.numberValue > 150) {
+      this.buttonState = true
+      this.someString = 'You"ve resched the limit';
+    }
+  }
 }
