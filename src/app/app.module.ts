@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { BlogPostComponent } from './blog-post/blog-post.component';
+import { FirstPipe } from './first.pipe';
 
 @NgModule({
   declarations: [ // All component available in the module
@@ -28,6 +30,8 @@ import { ChildComponent } from './child/child.component';
     ExercisesComponent,
     ParentComponent,
     ChildComponent,
+    BlogPostComponent,
+    FirstPipe,
   ],
   imports: [ // Shows us all the modules being used in our module
     BrowserModule,

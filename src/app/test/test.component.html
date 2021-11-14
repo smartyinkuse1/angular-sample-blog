@@ -1,13 +1,49 @@
 <div class="container">
-  <p>Interpolation binding</p>
-  <p>{{title}}</p>
-  <p>{{displayValue}}</p>
 
+  <p>date ==>  {{currentDate | date: 'mediumTime'}}</p>
+
+
+
+
+
+  <p >Interpolation binding</p>
+  <p *ngIf="titleState">{{title}}</p>
+  <p>{{displayValue | currency:'CAD':'code'}}</p>
+  <p>{{numberValue | number:'2.1-3'}}</p>
+  <p>{{numberValue | percent}}</p>
+
+
+  <select name="" id="">
+    <option *ngFor="let fruit of fruits" value="">{{fruit}}</option>
+  </select>
+
+  <div *ngFor="let car of cars" class="w-50 bg-secondary">
+    <h3>Car Brand - {{car.name}} </h3>
+    <p>mileage - {{car.mileage}} </p>
+    <p>year - {{car.year}}</p>
+    <p>color - {{car.color}} </p>
+  </div>
+  <!-- <div class="w-50 bg-secondary">
+    <h3>Car Brand - </h3>
+    <p>mileage - </p>
+    <p>year - </p>
+    <p>color - </p>
+  </div>
+  <div class="w-50 bg-secondary">
+    <h3>Car Brand - </h3>
+    <p>mileage - </p>
+    <p>year - </p>
+    <p>color - </p>
+  </div> -->
+  <!-- <h1>Great</h1> -->
+
+
+  <h1 [title]="someString">I am doing good</h1>
 
   <p>Property binding</p>
   <p [title]="title">Hover me</p>
   <img [src]="imageUrl" style="height: 100px;" [alt]="imageAlt">
-  <button [disabled]="buttonState">Submit</button>
+  <button (click)="titleToggler()">Submit</button>
 
 
   <p>Event binding</p>
@@ -19,7 +55,9 @@
   <p>Two Way binding</p>
   <input type="text" [(ngModel)]="title">
 
+
   <app-exercises [displayValueFromParent]="displayValue"></app-exercises>
 </div>
+
 
 

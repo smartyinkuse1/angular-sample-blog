@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { posts } from '../data/post';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  searchText: string = 'Home Search';
+  searchValue: string = '';
+  posts = posts
+  latestPosts: any[] = []
   constructor() { }
 
   ngOnInit(): void {
+    this.latestPosts = this.posts.slice(0,3)
+  }
+
+  receiveHeaderSearch(value: string) {
+    this.searchValue = value;
   }
 
 }

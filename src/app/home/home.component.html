@@ -1,58 +1,29 @@
-<app-header></app-header>
+<app-header [buttonText]="searchText" (sendEmitter)="receiveHeaderSearch($event)"></app-header>
 
 <div class="container my-5">
   <p class="text-center h3">Latest Posts</p>
   <div class="row mt-5">
-    <div class="col-md-4">
+    <div *ngFor="let post of latestPosts" class="col-md-4">
       <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="assets/buildings.jpg" class="img-fluid rounded-start img-high" alt="...">
+            <img [src]="post.backgroundImage" class="img-fluid rounded-start img-high" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">My city is the best</h5>
-              <p class="card-text">I've lived here for a long time and i really enjoy it here, being an industralized community is the fascinating part....</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.paragrapgh1}}....</p>
+              <a [routerLink]="['/blog-post', post.id]">read more</a>
+              <p class="card-text"><small class="text-muted">{{post.createdAt | date}}</small></p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/nagasaki-image.jpg" class="img-fluid rounded-start img-high" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Nagasaki war outcome</h5>
-              <p class="card-text">World war 2 had Nagasaki and Hiroshima bombed to the ground. Let's take a moment to honour those who lost their lives...</p>
-              <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="assets/fitness-image.jpg" class="img-fluid rounded-start img-high"  alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Staying Fit</h5>
-              <p class="card-text">I have decided to Jog 5km every morning and do some streches so i can be very fit and live healthy.</p>
-              <p class="card-text"><small class="text-muted">Last updated 6 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
   <p class="text-center h3 mt-5">ADS</p>
+  <p>{{searchValue}}</p>
   <div id="carouselExampleIndicators" class="carousel slide m-5" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -81,53 +52,13 @@
   </div>
   <p class="text-center h3 mt-5">Most Read</p>
   <div class="row my-5 py-3 main">
-    <div class="col-md-4">
+    <div *ngFor="let post of posts" class="col-md-4">
       <div class="card">
-        <img src="assets/latest-image-1.jpg" class="card-img-top" alt="...">
+        <img [src]="post.backgroundImage" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="assets/latest-image-2.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="assets/latest-image-3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="assets/latest-image-2.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card" >
-        <img src="assets/latest-image-3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.paragrapgh1}}</p>
+          <a [routerLink]="['/blog-post', post.id]" class="btn btn-primary">Read more</a>
         </div>
       </div>
     </div>
