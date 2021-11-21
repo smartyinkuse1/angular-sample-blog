@@ -8,13 +8,19 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 export class ParentComponent implements OnInit, DoCheck {
   numberValue: number = 50;
   inputValue: string = '';
+  childState: boolean = true
   constructor() { }
 
   ngOnInit(): void {
+    console.log("I'm in OnInit Method");
+    this.inputValue = 'hello world'
+    console.log(this.inputValue);
+    // Allows us to make database calls (GET)
+    // some results []
+    // added to class property
   }
   ngDoCheck() {
     console.log("DoCheck is run");
-
   }
 
   receiveChildValue(value: string) {
@@ -22,6 +28,9 @@ export class ParentComponent implements OnInit, DoCheck {
 
   }
 
+  onButtonToggler() {
+    this.childState = !this.childState;
+  }
   // Generate two components named microsoft and linkedin
   // Create a parent-child relationship (Microsoft as parent and LinkedIn as child)
   // In microsft component, declare a string variable 'You"re doing so well' - you can have dummy view contents

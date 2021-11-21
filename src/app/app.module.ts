@@ -16,6 +16,8 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { FirstPipe } from './first.pipe';
+import { CommonModule } from '@angular/common';
+import { BlogCreateComponent } from './blog-create/blog-create.component';
 
 @NgModule({
   declarations: [ // All component available in the module
@@ -32,10 +34,12 @@ import { FirstPipe } from './first.pipe';
     ChildComponent,
     BlogPostComponent,
     FirstPipe,
+    BlogCreateComponent,
   ],
   imports: [ // Shows us all the modules being used in our module
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     FormsModule
   ],
   providers: [],

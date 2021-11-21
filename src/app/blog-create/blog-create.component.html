@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Admin</li>
+      </ol>
+    </nav>
+    <h1 class="display-5 fw-bold">Admin</h1>
+  </div>
+
+  <div class="container-fluid">
+    <form #blogForm="ngForm" class="w-50" (ngSubmit)="onSubmit(blogForm)">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title</label>
+        <input type="text" #title="ngModel" name="title" required class="form-control" id="exampleFormControlInput1" placeholder="Enter Title" ngModel>
+        <span *ngIf="title.invalid && title.touched" style="color: red;">title is required</span>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Background Image</label>
+        <input type="file" (change)="onFileClicked($event, 'main')" >
+        <img *ngIf="imagePreview" [src]="imagePreview" width="400" height="200" class="mt-2" alt="">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea2" class="form-label">Paragraph one</label>
+        <textarea name="paragraph1" #paragraph1="ngModel" minlength="10" maxlength="30" class="form-control" id="exampleFormControlTextarea2" rows="3" ngModel></textarea>
+        <span *ngIf="paragraph1.invalid && paragraph1.touched" style="color: red;">min of 10 characters and max of 30 characters</span>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Sub Image</label>
+        <input type="file" (change)="onFileClicked($event, 'sub')" >
+        <img *ngIf="subImagePreview" [src]="subImagePreview" width="400" height="200" class="mt-2" alt="">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput5" class="form-label">image title</label>
+        <input type="text" #subImageTitle="ngModel" name="subImageTitle" required class="form-control" id="exampleFormControlInput5" placeholder="Enter subImageTitle" ngModel>
+        <span *ngIf="subImageTitle.invalid && subImageTitle.touched" style="color: red;">email is required</span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Paragraph two</label>
+        <textarea name="paragraph2" #paragraph2="ngModel" minlength="10" maxlength="30" class="form-control" id="exampleFormControlTextarea1" rows="3" ngModel></textarea>
+        <span *ngIf="paragraph2.invalid && paragraph2.touched" style="color: red;">min of 10 characters and max of 30 characters</span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput4" class="form-label">Category</label>
+        <select name="category" #category="ngModel" required class="form-select" aria-label="Default select example" ngModel>
+          <option>Open this select menu</option>
+          <option *ngFor="let category of categories" [value]="category">{{category | titlecase}}</option>
+        </select>
+        <span *ngIf="category.invalid && category.touched" style="color: red;">status is required</span>
+      </div>
+      <button type="submit" [disabled]="blogForm.invalid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+</div>
+

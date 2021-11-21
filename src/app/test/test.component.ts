@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-test',
@@ -17,6 +18,9 @@ export class TestComponent implements OnInit, OnDestroy {
   currentDate: Date = new Date();
   numberValue: number = 2.34657;
   titleState:boolean = false;
+  wordState: boolean = true;
+  styleOne ='demo'
+  styleTwo = 'big'
   fruits: string[] = ['Orange', 'Apple', 'Banana', 'PineApple', 'Pear', 'Avocado'];
   cars: any[] = [
     {
@@ -44,7 +48,11 @@ export class TestComponent implements OnInit, OnDestroy {
       color: "green"
     },
   ]
-
+  propertyA: string = 'Hello World';
+  propertyB: string = "Welcome here";
+  btnState: boolean = true;
+  imagePreview: any;
+  file: File = {} as File;
   constructor() { }
 
   ngOnInit(): void {
@@ -73,6 +81,24 @@ export class TestComponent implements OnInit, OnDestroy {
   titleToggler() {
     this.titleState = !this.titleState
   }
+  changeButtonState() {
+    this.btnState = !this.btnState
+  }
+
+  onSubmit(form: NgForm) {
+    const formValue = {...form.value, file: this.file}
+    console.log(formValue);
+
+  }
+
+  onFileClicked(event: any) {
+    this.file = event.target?.files[0]
+    const reader = new FileReader();
+    reader.readAsDataURL(this.file)
+    reader.onload = () => {
+      this.imagePreview = reader.result;
+    }
+  }
 
   // Generate a new component (exercises), declare a number variable,  design a button
   // Whenever the button is being clicked the number variable shoud be squared
@@ -86,5 +112,11 @@ export class TestComponent implements OnInit, OnDestroy {
 
   // generate a pipe that adds the sentence "You're welcome" to any string;
   // {{ word | pipe }} - Hello You're welcome
+
+
+  // I have two class properties with values "Hello world" and "Welcome here",
+  // i also have a button, Whenever the button is clicked,
+  // i want to display or remove the hello world,
+  // then toggle the color of Welcome here to blue and red
 }
 

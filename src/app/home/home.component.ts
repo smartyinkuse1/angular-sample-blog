@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from '../blog.service';
 import { posts } from '../data/post';
 
 @Component({
@@ -9,12 +10,15 @@ import { posts } from '../data/post';
 export class HomeComponent implements OnInit {
   searchText: string = 'Home Search';
   searchValue: string = '';
-  posts = posts
-  latestPosts: any[] = []
-  constructor() { }
+  posts: any[] = [];
+  latestPosts: any[] = [];
+  // blogService: BlogService;
+
+  constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
-    this.latestPosts = this.posts.slice(0,3)
+    this.posts = this.blogService.getPosts()
+    this.latestPosts = this.blogService.getlatestPosts();
   }
 
   receiveHeaderSearch(value: string) {

@@ -3,8 +3,8 @@
   <p>I'd be passing a valure to my child component</p>
   <p>The value i'd be passing is {{numberValue}} </p>
   <input type="text" [(ngModel)]="inputValue">
-
-  <app-child [value]="inputValue" (sendValue)="receiveChildValue($event)" ></app-child>
+  <button (click)="onButtonToggler()">Toggle</button>
+  <app-child *ngIf="childState" [value]="inputValue" (sendValue)="receiveChildValue($event)" ></app-child>
   <h1>Parent Component</h1>
 </div>
 
