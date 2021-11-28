@@ -1,4 +1,37 @@
 <div class="container">
+  <form class="my-5" #loginForm="ngForm" (ngSubmit)="onSubmitLogin(loginForm)">
+    <input type="email" name="email" ngModel>
+    <br>
+    <input type="password" name="password" ngModel>
+    <br>
+    <button type="submit">Login</button>
+  </form>
+
+  <form [formGroup]="signupForm" (ngSubmit)="onSignUp()" >
+    <h4>Sign up here</h4>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputFirstName1" class="form-label">First name</label>
+      <input type="text" formControlName="firstName" class="form-control" id="exampleInputFirstName1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputLastName1" class="form-label">Last name</label>
+      <input type="text" formControlName="lastName" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" formControlName="check" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 
 
   <p>date ==>  {{currentDate | date: 'fullDate'}}</p>
@@ -7,6 +40,50 @@
   <p [ngClass]="{'demo': btnState, 'demo-red': !btnState }" >{{propertyB}}</p>
   <button (click)="changeButtonState()">Submit</button>
 
+
+  <p >Interpolation binding</p>
+  <p *ngIf="titleState">{{title}}</p>
+  <p>{{displayValue | currency:'CAD':'code'}}</p>
+  <p>{{numberValue | number:'2.1-3'}}</p>
+  <p>{{numberValue | percent}}</p>
+
+  <!-- ngif is deprecated use ngIf instead -->
+  <span *ngIf="wordState; else other">Good day</span>
+  <ng-template #other>Good evening</ng-template>
+
+  <p *ngFor="let fruit of fruits">{{fruit}}</p>
+
+  <select name="" id="">
+    <option *ngFor="let fruit of fruits" value="">{{fruit}}</option>
+  </select>
+
+  <div *ngFor="let car of cars" class="w-50 bg-secondary">
+    <h3>Car Brand - {{car.name}} </h3>
+    <p>mileage - {{car.mileage}} </p>
+    <p>year - {{car.year}}</p>
+    <p>color - {{car.color}} </p>
+  </div>
+
+<h5 [ngClass]="'demo'">Welcome here</h5>
+<h5 [ngClass]="styleTwo">Welcome here</h5>
+<h4 [ngClass]="[styleOne, styleTwo]">
+
+  Welcome Everyone
+</h4>
+<h2 [ngClass]="{'demo': titleState, 'back': wordState}">Hello there</h2>
+  <!-- <div class="w-50 bg-secondary">
+    <h3>Car Brand - </h3>
+    <p>mileage - </p>
+    <p>year - </p>
+    <p>color - </p>
+  </div>
+  <div class="w-50 bg-secondary">
+    <h3>Car Brand - </h3>
+    <p>mileage - </p>
+    <p>year - </p>
+    <p>color - </p>
+  </div> -->
+  <!-- <h1>Great</h1> -->
   <form #bioForm="ngForm" class="w-50" (ngSubmit)="onSubmit(bioForm)">
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">First Name</label>
@@ -55,50 +132,6 @@
     </div>
     <button type="submit" [disabled]="bioForm.invalid" class="btn btn-primary">Submit</button>
   </form>
-  <p >Interpolation binding</p>
-  <p *ngIf="titleState">{{title}}</p>
-  <p>{{displayValue | currency:'CAD':'code'}}</p>
-  <p>{{numberValue | number:'2.1-3'}}</p>
-  <p>{{numberValue | percent}}</p>
-
-  <!-- ngif is deprecated use ngIf instead -->
-  <span *ngIf="wordState; else other">Good day</span>
-  <ng-template #other>Good evening</ng-template>
-
-  <p *ngFor="let fruit of fruits">{{fruit}}</p>
-
-  <select name="" id="">
-    <option *ngFor="let fruit of fruits" value="">{{fruit}}</option>
-  </select>
-
-  <div *ngFor="let car of cars" class="w-50 bg-secondary">
-    <h3>Car Brand - {{car.name}} </h3>
-    <p>mileage - {{car.mileage}} </p>
-    <p>year - {{car.year}}</p>
-    <p>color - {{car.color}} </p>
-  </div>
-
-<h5 [ngClass]="'demo'">Welcome here</h5>
-<h5 [ngClass]="styleTwo">Welcome here</h5>
-<h4 [ngClass]="[styleOne, styleTwo]">
-
-  Welcome Everyone
-</h4>
-<h2 [ngClass]="{'demo': titleState, 'back': wordState}">Hello there</h2>
-  <!-- <div class="w-50 bg-secondary">
-    <h3>Car Brand - </h3>
-    <p>mileage - </p>
-    <p>year - </p>
-    <p>color - </p>
-  </div>
-  <div class="w-50 bg-secondary">
-    <h3>Car Brand - </h3>
-    <p>mileage - </p>
-    <p>year - </p>
-    <p>color - </p>
-  </div> -->
-  <!-- <h1>Great</h1> -->
-
 
   <h1 [title]="someString">I am doing good</h1>
 

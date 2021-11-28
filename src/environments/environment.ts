@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  baseApi: "https://blog-api-sample.herokuapp.com/api/v1/"
 };
 
 /*

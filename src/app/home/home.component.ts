@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { of } from 'rxjs';
 import { BlogService } from '../blog.service';
 import { posts } from '../data/post';
 
@@ -17,8 +18,18 @@ export class HomeComponent implements OnInit {
   constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
-    this.posts = this.blogService.getPosts()
-    this.latestPosts = this.blogService.getlatestPosts();
+    let sampleObs = of(1)
+    sampleObs.subscribe(value => {
+      console.log("Subscribe", value);
+
+    })
+
+    this.blogService.getPosts().subscribe((value:any) => {
+      console.log("Api response",value);
+      this.posts = value.data
+      this.latestPosts = this.posts.slice(0,3)
+    })
+
   }
 
   receiveHeaderSearch(value: string) {

@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Post } from './blog-create/blog-create.model';
 import { posts } from './data/post';
 
@@ -7,22 +9,21 @@ import { posts } from './data/post';
 })
 export class BlogService {
   private posts = posts
-  constructor() { }
+  baseUrl: string = environment.baseApi;
+  //http - BTS
+  constructor(private http: HttpClient) { }
 
   getPosts() {
     // return this.http.get()
-    return this.posts;
+    // BTS An Observable is created and the API response is emitted into the observable
+    // Therefore we can subscribe to the observable in the component
+    return this.http.get(`${this.baseUrl}blog/`)
   }
 
-  getlatestPosts() {
-    return this.posts.slice(0,3)
+  getSinglePost(slug: any) {
+    return this.http.get(`${this.baseUrl}blog/${slug}`);
   }
-
-  getSinglePost(id: any) {
-    return this.posts.find(post => post.id ==  id);
-  }
-  addPost(value: Post) {
-    posts.unshift(value)
-    this.posts = posts;
+  addPost(value: any) {
+    return this.http.post(`${this.baseUrl}blog/`, value);
   }
 }

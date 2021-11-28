@@ -10,7 +10,7 @@ import { CategoryComponent } from './category/category.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TestComponent } from './test/test.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
@@ -18,6 +18,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
 import { FirstPipe } from './first.pipe';
 import { CommonModule } from '@angular/common';
 import { BlogCreateComponent } from './blog-create/blog-create.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [ // All component available in the module
@@ -40,7 +41,9 @@ import { BlogCreateComponent } from './blog-create/blog-create.component';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

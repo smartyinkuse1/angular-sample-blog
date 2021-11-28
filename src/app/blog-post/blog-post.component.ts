@@ -17,8 +17,10 @@ export class BlogPostComponent implements OnInit {
       if (param.has('id')) {
         this.blogId = param.get('id');
         console.log(this.blogId);
-        this.blogPost = this.blogService.getSinglePost(this.blogId)
-        console.log(this.blogPost);
+        this.blogService.getSinglePost(this.blogId).subscribe((value: any)=> {
+          console.log(value);
+          this.blogPost = value.data
+        })
       }
     })
   }

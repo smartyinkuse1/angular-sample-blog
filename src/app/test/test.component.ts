@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-test',
@@ -53,6 +54,7 @@ export class TestComponent implements OnInit, OnDestroy {
   btnState: boolean = true;
   imagePreview: any;
   file: File = {} as File;
+  signupForm: FormGroup = {} as FormGroup;
   constructor() { }
 
   ngOnInit(): void {
@@ -60,7 +62,13 @@ export class TestComponent implements OnInit, OnDestroy {
     console.log("Hello i'm in the onInint "); // Runs
     this.title = "Response from Backend";
     console.log(this.currentDate);
-
+    this.signupForm = new FormGroup({
+      email: new FormControl('ola@mail.com'), // input | control | formControl
+      firstName: new FormControl('Olayinka'),
+      lastName: new FormControl('Famutimi'),
+      check: new FormControl(),
+      password: new FormControl()
+    })
   }
 
   onHeadingClick() {
@@ -85,9 +93,16 @@ export class TestComponent implements OnInit, OnDestroy {
     this.btnState = !this.btnState
   }
 
+  // Template approach has no initialized form in the component
   onSubmit(form: NgForm) {
     const formValue = {...form.value, file: this.file}
     console.log(formValue);
+
+  }
+
+  // Reactive approach has an initialized form
+  onSignUp() {
+    console.log(this.signupForm);
 
   }
 
@@ -98,6 +113,10 @@ export class TestComponent implements OnInit, OnDestroy {
     reader.onload = () => {
       this.imagePreview = reader.result;
     }
+  }
+
+  onSubmitLogin(form: NgForm) {
+    console.log(form.value);
   }
 
   // Generate a new component (exercises), declare a number variable,  design a button
@@ -118,5 +137,7 @@ export class TestComponent implements OnInit, OnDestroy {
   // i also have a button, Whenever the button is clicked,
   // i want to display or remove the hello world,
   // then toggle the color of Welcome here to blue and red
+
+  // ng g c blog-create
 }
 

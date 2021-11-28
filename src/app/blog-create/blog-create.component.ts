@@ -13,20 +13,26 @@ export class BlogCreateComponent implements OnInit {
   imagePreview: any;
   subImagePreview: any;
   categories: string[] = ['music', 'fashion', 'news', 'sport'];
+  //blogService
   constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
   }
   onSubmit(form: NgForm) {
-    const formValue = {
-      id: uuidv4(),
-      ...form.value,
-      backgroundImage: this.imagePreview,
-      subImage: this.subImagePreview,
-      createdAt: new Date()
-    }
-    this.blogService.addPost(formValue)
-    form.resetForm();
+    const formValue = new FormData(); // OOP instantiation.
+    formValue.append("title", form.value.title);
+    formValue.append("category", form.value.category);
+    formValue.append("paragraph1", form.value.paragraph1);
+    formValue.append("paragraph2", form.value.paragraph2);
+    formValue.append("subImageTitle", form.value.subImageTitle);
+    formValue.append("backgroundImage", this.backgroundFile)
+    formValue.append("subImage", this.subFile)
+
+    this.blogService.addPost(formValue).subscribe(value => {
+      form.resetForm();
+      console.log("Blog post added");
+      alert("Blog post added")
+    })
   }
 
   onFileClicked(event: any, field: string) {

@@ -1,11 +1,13 @@
 export interface Post {
-  id: string;
+  _id?: string;
   title: string;
+  slug: string;
   paragraph1: string;
   backgroundImage: string;
   subImage: string;
   subImageTitle: string;
   paragraph2: string;
   category: string;
-  createdAt: Date
+  createdAt: Date;
+  updatedAt: Date;
 }
